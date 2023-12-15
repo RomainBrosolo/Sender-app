@@ -1,0 +1,81 @@
+@import "../../../../../../styles.scss";
+
+:host {
+table {
+    width: 100%;
+    padding-left: $padding-table;
+    padding-right: $padding-table;
+    position: absolute;
+    top: $positionTop-table;
+    z-index: 1;
+
+    td {
+      font-weight: 500;
+      font-size: $font-size-table;
+      color: $color-entites-table;
+      border-bottom-style: hidden;
+      &:last-child {
+        padding-right: 0;
+      }
+
+      button {
+        padding: 0px;
+        font-size: $font-size-table;
+        font-weight: 500;
+        font-family: Calibri;
+        width: $width-btn-table;
+        height: $height-btn-table;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &:nth-child(1) {
+          background: $color-btnEdit;
+          margin-left: 20px;
+        }
+
+        &:nth-child(2) {
+          background-color: $color-btnDelete;
+          color: white;
+          margin-left: 10px;
+          width: 80px;
+        }
+      }
+    }
+
+    th {
+      width: $width-column-table;
+      font-size: $font-size-table;
+      color: $secondary;
+      padding-top: $paddingTop-title-table;
+
+      &:nth-child(5) {
+        min-width: 147px;
+      }
+    }
+
+    tr:nth-child(2n) {
+      background-color: $color-tr-table;
+    }
+
+    button {
+      border-radius: 0px;
+    }
+  }
+  .searchBar {
+    margin-left: 20px;
+    margin-top:10px;
+  }
+  #btnViewDonation {
+    background-color: transparent;
+    color: blue;
+    text-decoration: underline;
+    border: 0;
+    &:hover {
+        cursor: pointer;
+    }
+  }
+  button[btn]{
+    padding: 5px;
+  }
+}

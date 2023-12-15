@@ -1,0 +1,78 @@
+<header>
+  <button mat-icon-button (click)="goToHomePage()">
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-icon-button (click)="logoutUser()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</header>
+<mat-drawer-container class="sidenav-container">
+    <mat-drawer
+      #drawerAdd
+      class="content-sidenav"
+      mode="over"
+      position="end"
+      [(opened)]="isShow || isShowEdit" (closed)="closeSidenav()"
+    >
+      <app-contributor-form-create *ngIf="formSelected == 'CreateContributor'"
+      (isShowOutput)="isShow = $event"
+      (onCreate)="createContributor($event)"
+      [Show]="isShow">
+      </app-contributor-form-create>
+      <app-donation-form-create *ngIf="formSelected == 'CreateDonation'"
+      (isShowOutput)="isShow = $event"
+      (onCreate)="createDonation($event)"
+      [Show]="isShow"
+      [contributors]="contributors$ | async">
+      </app-donation-form-create>
+      <app-donation-form-edit
+        *ngIf="isShowEdit && formSelected == 'EditDonation'"
+        (isShowOutput)="isShowEdit = $event"
+        (onUpdate)="updateDonation($event)"
+        [Show]="isShowEdit"
+        [element]="element"
+      >
+      </app-donation-form-edit>
+      <app-contributor-form-edit
+        *ngIf="isShowEdit && formSelected == 'EditContributor'"
+        (isShowOutput)="isShowEdit = $event"
+        (onUpdate)="updateContributor($event)"
+        [Show]="isShowEdit"
+        [element]="elementContributor"
+      >
+      </app-contributor-form-edit>
+    </mat-drawer>
+    <div class="sidenav-content">
+      <mat-form-field class="input-select-category" appearance="fill">
+        <mat-label>Choisir une liste</mat-label>
+        <mat-select [(ngModel)]="selectedCategorie">
+          <mat-option value="donations">Liste des dons</mat-option>
+          <mat-option value="contributors">Liste des donateurs</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        id="btnCreateContributor"
+        name="create"
+        (click)="toggleFormCreateContributor()"
+      >
+        Créer un donateur
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        id="btnCreateDonation"
+        name="create"
+        (click)="toggleFormCreateDonation()"
+      >
+        Créer un don
+      </button>
+      <app-donation-table *ngIf="selectedCategorie == 'donations'" [donations]="donations$ | async" [contributors]="contributors$ | async" (onDonationStatusUpdate)="updateStatus($event)" (onDeleteDonation)="deleteDonation($event)" (onDonationEdit)="toggleMenuEdit($event)"></app-donation-table>
+      <app-contributor-table *ngIf="selectedCategorie == 'contributors'" (categorySelected)="selectedCategorie = $event" [donations]="donations$ | async" [contributors]="contributors$ | async" (onDeleteContributor)="deleteContributor($event)" (onContributorEdit)="toggleMenuEditContributor($event)"></app-contributor-table>
+    </div>
+</mat-drawer-container>
+
+<ng-template #contributorCreateForm>
+    <app-contributor-form-create (onCreate)="createContributor($event)"></app-contributor-form-create>
+</ng-template>

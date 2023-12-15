@@ -1,0 +1,63 @@
+<table mat-table [dataSource]="gridData">
+    <ng-container matColumnDef="identification">
+      <th mat-header-cell *matHeaderCellDef>Numéro de suivi</th>
+      <td mat-cell *matCellDef="let element">{{ element.donation._id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="contributor">
+      <th mat-header-cell *matHeaderCellDef>Donateur</th>
+      <td mat-cell *matCellDef="let element">{{ element?.contributor ? element?.contributor?.firstname : 'Deleted' }} {{ element?.contributor ? element?.contributor?.lastname : null }}</td>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Type de don</th>
+      <td mat-cell *matCellDef="let element">{{ element.donation.type }}</td>
+    </ng-container>
+    <ng-container matColumnDef="cost">
+      <th mat-header-cell *matHeaderCellDef>Coût (€)</th>
+      <td mat-cell *matCellDef="let element">{{ element.donation.cost }}</td>
+    </ng-container>
+    <ng-container matColumnDef="isDelivred">
+      <th mat-header-cell *matHeaderCellDef>Est délivré</th>
+      <td mat-cell *matCellDef="let element"><mat-checkbox [color]="colorCheckbox"
+         (change)="updateDonationStatus(element.donation)"
+        [checked]="element.donation.tracking.isDelivred"></mat-checkbox></td>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <th mat-header-cell *matHeaderCellDef>Date de création</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.donation.created | date: "dd/MM/yy" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="updated">
+      <th mat-header-cell *matHeaderCellDef>Mise à jour le</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.donation.updated | date: "dd/MM/yy" }}
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" style="display:flex; margin-top: 5px;">
+        <button
+          mat-raised-button
+          color="primary"
+          name="edit"
+          (click)="editDonation(element.donation)"
+        >
+          Modifier
+        </button>
+        <button mat-raised-button (click)="deleteDonation(element.donation._id)">
+          Supprimer
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-form-field class="searchBar">
+    <input matInput placeholder="Rechercher" [(ngModel)]="inputSearch" (change)="searchDonation()">
+    <button *ngIf="inputSearch" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchBar()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>

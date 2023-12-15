@@ -1,0 +1,61 @@
+<header>
+  <div class="custom-container">
+    <a class="header__logo" href="/" aria-label="Page d'acceuil">
+      <img src="../../../../assets/logo.png" loading="lazy" width="120" height="120" alt="Burkina Dream">
+    </a>
+    <nav  class="desktop">
+      <ul class="footer__contact">
+        <li>
+          <a [routerLink]="['/accueil']">Accueil</a>
+        </li>
+        <li>
+          <a [routerLink]="['/don']">Suivre un don</a>
+        </li>
+        <li>
+          <a [routerLink]="['/actualites']">Actualités</a>
+        </li>
+        <li *ngIf="!isConnect">
+          <a [routerLink]="['/login']"><mat-icon>person</mat-icon></a>
+        </li>
+        <li *ngIf="isConnect">
+          <a [routerLink]="['/admin']">
+            <mat-icon>settings</mat-icon>
+          </a>
+        </li>
+        <li *ngIf="isConnect">
+          <button mat-icon-button (click)="logoutUser()" >
+            <mat-icon>logout</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <nav class="mobile">
+      <ul>
+        <li>
+          <a [routerLink]="['/accueil']" onclick="document.querySelector('.burger__btn')?.click()">Accueil</a>
+        </li>
+        <li>
+          <a [routerLink]="['/don']" onclick="document.querySelector('.burger__btn')?.click()">Suivre un don</a>
+        </li>
+        <li>
+          <a [routerLink]="['/actualites']" onclick="document.querySelector('.burger__btn')?.click()">Actualités</a>
+        </li>
+        <li *ngIf="!isConnect">
+          <a [routerLink]="['/login']" onclick="document.querySelector('.burger__btn')?.click()">Se connecter</a>
+        </li>
+        <li *ngIf="isConnect">
+          <a [routerLink]="['/admin']" onclick="document.querySelector('.burger__btn')?.click()">Administration</a>
+        </li>
+        <li *ngIf="isConnect">
+          <button mat-icon-button (click)="logoutUser()" >
+            <mat-icon>logout</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <button class="burger__btn" aria-label="Ouvrir menu" onclick="this.classList.toggle('active'); document.querySelector('nav.mobile')?.classList.toggle('active')">
+      <img class="burger__icon" src="../../../../assets/burger-icon.svg" loading="lazy" width="40" height="40" alt="Burger icon">
+      <img class="close__icon" src="../../../../assets/close-icon.svg" loading="lazy" width="40" height="40" alt="Close icon">
+    </button>
+  </div>
+</header>

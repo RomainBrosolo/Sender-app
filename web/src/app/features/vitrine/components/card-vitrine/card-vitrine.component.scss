@@ -1,0 +1,64 @@
+@import "../../../../../styles.scss";
+
+:host {
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  p,
+  span {
+    font-family: "Aleo Light";
+  }
+
+  h1 {
+    font-family: "Aleo Bold";
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  button {
+    font-family: "Aleo Regular";
+  }
+}
+
+.card {
+  display: grid;
+  gap: $spacing-md;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 250px;
+
+  img {
+    border-radius: $border-round;
+  }
+
+  .separator {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto;
+    border: 1px solid $yellow;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: $text-sm;
+    line-height: $text-sm;
+  }
+
+  @media screen and (min-width: 960px) {
+    width: 100%;
+  
+    h2 {
+      font-size: $text-md;
+      line-height: $text-md;
+    }
+  }
+}

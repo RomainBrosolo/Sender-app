@@ -1,0 +1,41 @@
+<div class="container">
+    <form (submit)="submitLogin()" *ngIf="!isConnect">
+        <mat-form-field appearance="fill">
+        <mat-label for="name">Identifiant</mat-label>
+        <input
+            matInput
+            placeholder="Identifiant"
+            type="text"
+            name="login"
+            [(ngModel)]="user.login"
+            autofocus
+            required
+        />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+        <mat-label for="name">Mot de passe</mat-label>
+        <input
+            matInput
+            placeholder="Mot de passe"
+            type="password"
+            name="password"
+            [(ngModel)]="user.password"
+            required
+        />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          [disabled]="
+            !user.login || !user.password"
+          type="submit"
+        >
+          Se connecter
+        </button>
+    </form>
+    <div class="btn" *ngIf="isConnect">
+      <h1>Vous êtes actuellemnt connecté en tant qu'administrateur</h1>
+    <button mat-raised-button (click)="logoutUser()">
+      Se Déconnecter
+    </button>
+    </div>
+</div>

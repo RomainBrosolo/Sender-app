@@ -1,0 +1,30 @@
+<div class="custom-container suivre-un-don">
+  <h1>Suivre un don</h1>
+  <form>
+    <input placeholder="Numéro du don" type="text" name="don" autocomplete="off" [(ngModel)]="inputSearch" (keydown.enter)="searchDonation()" autofocus required />
+    <button aria-label="Rechercher un don" (click)="searchDonation()">
+      <img src="../../../../../assets/search-icon.svg" loading="lazy" width="40" height="40" alt="Recherche">
+    </button>
+  </form>
+  <div class="don-result" *ngIf="donation">
+    <h2>Merci <b>{{contributor[0].firstname}} {{contributor[0].lastname}}</b> pour votre don</h2>
+    <div *ngIf="donation?.tracking?.isDelivred">
+      <ul>
+        <li>distribué le {{donation?.updated | date}}</li>
+        <li>{{donation?.type.toLowerCase() === "monnaie" ? "don d'argent" : donation?.type }}</li>
+        <li>créé le {{donation?.created | date}}</li>
+      </ul>
+    
+      <div class="infos-don" *ngIf="donation?.tracking?.message">
+        <img [src]="donation?.tracking?.picture" alt="donation picture" *ngIf="donation?.tracking?.picture">
+        <p style="margin: 0 auto;">Message personnalisé : {{donation?.tracking?.message}}</p>
+      </div>
+      <div style="text-align: center; margin-bottom: 50px;" *ngIf="!donation?.tracking?.picture">
+        <h3>Image non disponible pour le moment.</h3>
+      </div>
+    </div>
+  </div>
+  <div class="don-result" *ngIf="donation?.tracking?.isDelivred == false">
+    <h3>Votre donation a bien été prise en compte par notre équipe mais n'est pas encore arrivé à destination.</h3>
+  </div>
+</div>

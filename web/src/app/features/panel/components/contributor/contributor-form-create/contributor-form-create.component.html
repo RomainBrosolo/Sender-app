@@ -1,0 +1,70 @@
+<div class="title">
+    <h3>Nouveau donateur</h3>
+    <button mat-icon-button (click)="toggleMenu()">
+      <mat-icon>highlight_off</mat-icon>
+    </button>
+  </div>
+  
+  <div class="container">
+    <form (submit)="submitContributor()">
+      <mat-form-field appearance="fill">
+        <mat-label for="name">Prénom</mat-label>
+        <input
+          matInput
+          placeholder="Firstname"
+          type="text"
+          name="firstname"
+          [(ngModel)]="contributor.firstname"
+          autofocus
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label for="name">Nom</mat-label>
+        <input
+          matInput
+          placeholder="Lastname"
+          type="text"
+          name="lastname"
+          [(ngModel)]="contributor.lastname"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label for="name">Email</mat-label>
+        <input
+          matInput
+          placeholder="Email"
+          type="email"
+          name="email"
+          [(ngModel)]="contributor.email"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label for="name">Instagram</mat-label>
+        <input
+          matInput
+          placeholder="Instagram"
+          type="text"
+          name="instagram"
+          [(ngModel)]="contributor.instagram"
+        />
+      </mat-form-field>
+      <div class="btnMenu">
+        <button
+          mat-raised-button
+          [disabled]="
+            !contributor.firstname || !contributor.lastname || !contributor.email"
+          type="submit"
+        >
+          Sauvegarder
+        </button>
+        <button mat-raised-button type="reset" (click)="toggleMenu()">
+          Retour
+        </button>
+      </div>
+    </form>
+  </div>
+
+  

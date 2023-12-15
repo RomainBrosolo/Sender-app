@@ -1,0 +1,25 @@
+@import "../styles.scss";
+:host {
+  .container {
+    display: grid;
+    grid-template-rows: auto minmax(100vh, auto) auto;
+    grid-template-areas: "header" "content" "footer";
+
+    app-header {
+      grid-area: header;
+      background-color: $color-bg-header;
+      border-right: 0px;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    app-footer {
+      grid-area: footer;
+      background-color: $color-bg-navbar;
+    }
+
+    .routeur {
+      grid-area: content;
+    }
+  }
+}

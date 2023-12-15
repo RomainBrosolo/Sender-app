@@ -1,0 +1,59 @@
+<div class="title">
+  <h3>Modifier un don</h3>
+  <button mat-icon-button (click)="toggleMenu()">
+    <mat-icon>highlight_off</mat-icon>
+  </button>
+</div>
+
+<div class="container">
+  <form (submit)="submitDonation()">
+    <mat-form-field appearance="fill">
+      <mat-label>Type de don</mat-label>
+      <mat-select [(ngModel)]="donation.type" name="category" (selectionChange)="changeCostInput($event)">
+        <mat-option
+          *ngFor="let enum of categoryEnum | keyvalue"
+          value="{{ enum.value }}"
+          >{{ enum.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Coût</mat-label>
+      <input
+        matInput
+        placeholder="Cost"
+        type="number"
+        name="cost"
+        min="0"
+        [(ngModel)]="donation.cost"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Message</mat-label>
+      <input
+        matInput
+        placeholder="Message"
+        type="text"
+        name="message"
+        [(ngModel)]="donation.message"
+      />
+    </mat-form-field>
+    <div *ngIf="!imageData">
+      <h3>Image</h3>
+      <img [src]="element?.tracking?.picture" alt="image-illustration" width="300" *ngIf="element?.tracking?.picture"/>
+    </div>
+    <div *ngIf="imageData">
+      <h3>{{element?.tracking?.picture ? 'Nouvelle Image' : 'Image Téléchargée'}}</h3>
+      <img [src]="imageData" alt="image updated" width="300" />
+    </div>
+    <input type="file" name="image" id="inputImage" (change)="selectImage($event)">
+    
+    <div class="btnMenu">
+      <button mat-raised-button type="submit">Sauvegarder</button>
+      <button mat-raised-button type="reset" (click)="toggleMenu()">
+        Retour
+      </button>
+    </div>
+  </form>
+</div>

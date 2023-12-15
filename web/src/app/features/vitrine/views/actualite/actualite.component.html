@@ -1,0 +1,35 @@
+<div class="flow">
+  <div class="news">
+      <h1>Actualités</h1>  
+      <div class="content-news">
+        <ul class="list-posts" >
+          <li class="post" *ngFor="let item of dataInsta ">
+            <div class="container">
+              <div class="top-content">
+                  <div class="left flow">
+                      <div class="profile-pic">
+                          <img src="../../../../../assets/logo.png" alt="">
+                      </div>
+                      <div class="profile-name">
+                          Association Dakuhan Polytech Sorbonne
+                      </div>
+                  </div>  
+              </div>
+              <div class="mid-content">
+                  <div class="img-content">
+                    <img src={{item.media_url}}>
+                  </div>
+              </div>
+              <div class="bottom-content">
+                  <div class="left">
+                      <div class="profile-details flow"> 
+                          <p><span>{{item.caption}}</span></p>
+                      </div>
+                  </div> 
+              </div>
+          </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

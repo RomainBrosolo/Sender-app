@@ -1,0 +1,55 @@
+<div class="title">
+    <h3>Nouvelle donation</h3>
+    <button mat-icon-button (click)="toggleMenu()">
+      <mat-icon>highlight_off</mat-icon>
+    </button>
+  </div>
+  
+  <div class="container">
+    <form (submit)="submitDonation()">
+      <mat-form-field appearance="fill">
+        <mat-label>Donateur</mat-label>
+        <mat-select name="contributor" [(ngModel)]="donation.contributor">
+            <mat-option *ngFor="let item of contributors" [value]="item._id">{{ item.firstname }} {{ item.lastname }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Type de don</mat-label>
+        <mat-select [(ngModel)]="donation.type" name="type" (selectionChange)="changeCostInput($event)">
+          <mat-option
+            *ngFor="let enum of articleEnum | keyvalue"
+            value="{{ enum.value }}"
+            >{{ enum.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Coût</mat-label>
+        <input
+          matInput
+          placeholder="Cost"
+          type="number"
+          name="cost"
+          min="0"
+          [(ngModel)]="donation.cost"
+          required
+        />
+      </mat-form-field>
+      <div class="btnMenu">
+        <button
+          mat-raised-button
+          [disabled]="
+            !donation.contributor || !donation.type || !donation.cost"
+          type="submit"
+        >
+          Sauvegarder
+        </button>
+        <button mat-raised-button type="reset" (click)="toggleMenu()">
+          Retour
+        </button>
+      </div>
+    </form>
+  </div>
+
+  

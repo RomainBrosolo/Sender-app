@@ -1,0 +1,22 @@
+@import "../../../../../../styles.scss";
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    form {
+        display: grid;
+        gap: $spacing-sm;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 300px;
+        margin-bottom: 100px;
+    }
+}

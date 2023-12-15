@@ -1,0 +1,111 @@
+@import "../../../../../../styles.scss";
+
+:host {
+table {
+    width: 100%;
+    padding-left: $padding-table;
+    padding-right: $padding-table;
+    position: absolute;
+    top: $positionTop-table;
+    padding-top: $spacing-lg;
+    z-index: 1;
+
+    th {
+      padding-left: $spacing-xs;
+      padding-right: $spacing-xs;
+
+      &:first-child {
+        padding-right: $spacing-xs;
+      }
+
+      &:last-child {
+        padding-left: $spacing-xs;
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 $spacing-sm;
+        font-size: $font-size-table;
+        font-weight: 500;
+        height: $height-btn-table;
+        border-radius: 4px;
+
+        &:nth-child(1) {
+          background: $color-btnEdit;
+        }
+
+        &:nth-child(2) {
+          background-color: $color-btnDelete;
+          color: white;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    td {
+      font-weight: 500;
+      font-size: $font-size-table;
+      color: $color-entites-table;
+      border-bottom-style: hidden;
+      padding: 0 $spacing-xs 0 $spacing-xs;
+
+      &:first-child {
+        padding: 0 0 0 $spacing-xs;
+      }
+
+      &:last-child {
+        padding: 0 $spacing-xs 0 0;
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 $spacing-sm;
+        font-size: $font-size-table;
+        font-weight: 500;
+        height: $height-btn-table;
+        border-radius: 4px;
+
+        &:nth-child(1) {
+          background: $color-btnEdit;
+        }
+
+        &:nth-child(2) {
+          background-color: $color-btnDelete;
+          color: white;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    th {
+      width: $width-column-table;
+      font-size: $font-size-table;
+      color: $secondary;
+      padding-top: $paddingTop-title-table;
+
+      &:nth-child(1) {
+        width: calc(#{$width-column-table} + 0.8 * #{$width-column-table});
+      }
+
+      &:nth-child(7) {
+        min-width: 147px;
+      }
+    }
+
+    tr:nth-child(2n) {
+      background-color: $color-tr-table;
+    }
+
+    button {
+      border-radius: 0px;
+    }
+  }
+  .searchBar {
+    margin-left: 20px;
+    margin-top:10px;
+  }
+}

@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Tracking {
+  picture: String
+  message: String
+  isDelivred: Boolean!
+}
+
+type Donation {
+  _id: ID!
+  contributor: String!
+  type: ArticleType!
+  cost: Float!
+  tracking: Tracking
+  created: DateTime!
+  updated: DateTime
+}
+
+enum ArticleType {
+  alimentationPack
+  educationPack
+  monnaie
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Contributor {
+  _id: ID!
+  firstname: String!
+  lastname: String!
+  email: String!
+  instagram: String
+  created: DateTime!
+  updated: DateTime
+  donations: [ListDonation!]
+}
+
+type ListDonation {
+  _id: ID!
+}
+
+type Query {
+  donations: [Donation!]!
+  donation(id: String!): Donation!
+  contributors: [Contributor!]!
+  contributor(id: String!): Contributor!
+}
+
+type Mutation {
+  create_donation(createDonation: CreateDonationInput!): Donation!
+  update_donation(updateDonationInput: UpdateDonationInput!): Donation!
+  delete_donation(id: String!): Boolean!
+  create_contributor(createContributor: CreateContributorInput!): Contributor!
+  update_contributor(updateContributorInput: UpdateContributorInput!): Contributor!
+  delete_contributor(id: String!): Boolean!
+  check_user(user: User!): Boolean!
+}
+
+input CreateDonationInput {
+  contributor: String!
+  type: ArticleType!
+  cost: Float!
+  created: DateTime
+}
+
+input UpdateDonationInput {
+  id: String!
+  type: ArticleType
+  cost: Float
+  picture: String
+  message: String
+  isDelivred: Boolean
+}
+
+input CreateContributorInput {
+  firstname: String!
+  lastname: String!
+  email: String!
+  instagram: String
+}
+
+input UpdateContributorInput {
+  _id: String!
+  firstname: String
+  lastname: String
+  email: String
+  instagram: String
+}
+
+input User {
+  _id: ID
+  login: String!
+  password: String!
+}

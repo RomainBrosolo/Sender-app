@@ -1,0 +1,253 @@
+@font-face {
+  font-family: "Aleo Regular";
+  src: url("./assets/Aleo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Aleo Bold";
+  src: url("./assets/Aleo-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Aleo Light";
+  src: url("./assets/Aleo-Light.ttf");
+}
+
+$black-full: #000000;
+$black: #263734;
+$beige: #F9F5E8;
+$yellow: #F9D94A;
+$white: #FAFAFA;
+$blue: #3E5D74;
+$red: #EB0000;
+
+$spacing-xs: 5px;
+$spacing-sm-bis: 10px;
+$spacing-sm: 15px;
+$spacing-md: 20px;
+$spacing-lg: 30px;
+$spacing-lg-bis: 40px;
+$spacing-xl: 60px;
+$spacing-2xl: 100px;
+$spacing-3xl: 200px;
+$spacing-nav-mobile: 120px;
+$spacing-nav-desktop: 300px;
+
+$animation-fast: all 200ms ease-in-out;
+$animation-slow: all 350ms ease-in-out;
+
+$text-xs: .8rem;
+$text-normal: 1rem;
+$text-sm: 1.5rem;
+$text-md: 2rem;
+$text-lg: 2.5rem;
+$text-xl: 3rem;
+$text-2xl: 3.5rem;
+
+$font-regular: "Aleo Regular";
+$font-bold: "Aleo Bold";
+$font-light: "Aleo Light";
+
+$border-round: 999999px;
+
+/* You can add global styles to this file, and also import other style files */
+$primary: #3e5d74;
+$secondary: #9f9f9f;
+
+$color-body: #fff;
+$color-bg-navbar: $primary;
+$color-bg-header: #fff;
+$color-bg-slideMenu: #fff;
+
+$color-btnDelete: #c70000;
+$color-btnEdit: #3e5d74;
+$color-btnCreate: $primary;
+$color-btnSave: #3e746d;
+
+$color-tr-table: #f1f1f1;
+$color-entites-table: #444444;
+$color-items-navbar: #d4c7a6;
+$color-logo-navbar: gray;
+$color-placeholder-search: #d2d2d2;
+
+$width-navbar: 60px;
+$height-navbar: 998px;
+$width-items-navbar: 24px;
+$gap-items-navbar: 25px;
+
+$width-sidenav: 380px;
+$padding-sidenav: 24px;
+
+$height-header: 60px;
+$padding-right-header: 24px;
+$padding-top-header: 10px;
+$gap-header: 24px;
+
+$height-search: 26px;
+$width-search: 217px;
+
+$height-logo: 40px;
+$size-icon-notif: 1.3;
+$gap-btn-forms: 12px;
+$paddingTop-title-forms: 10px;
+
+$padding-table: 24px;
+$paddingTop-title-table: 13px;
+$positionTop-table: 111px;
+$font-size-table: 16px;
+$height-btn-table: 32px;
+$width-btn-table: 57px;
+$width-column-table: 13%;
+$width-btnCreate: 120px;
+$padding-btnCreate: 10px;
+$marginTop-btnCreate: 32px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.snackbar {
+  background: #f9d94a;
+  color: black;
+
+  button {
+    background-color: #000000d0;
+    color: white !important;
+    border: none;
+  }
+}
+
+body {
+  background: $beige;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  width: 100%;
+}
+
+
+h1 {
+  font-family: "Aleo Bold";
+}
+
+h2,
+h3 {
+  font-family: "Aleo Regular";
+}
+
+// button
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  padding: $spacing-md $spacing-xl;
+  box-shadow: 1px 5px 4px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  transition: $animation-fast;
+  font-family: $font-bold;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.yellow-cta {
+  background: $yellow;
+  color: $black-full;
+}
+
+.black-cta {
+  background: $black;
+  color: $yellow;
+}
+
+// utils
+
+.custom-container {
+  max-width: 1024px;
+  margin: auto;
+  padding-left: $spacing-sm !important;
+  padding-right: $spacing-sm !important;
+}
+
+.container-img {
+  width: 100%;
+  position: relative;
+
+  &.square {
+    padding-top: 100%;
+  }
+
+  &.portrait {
+    padding-top: calc((3/2) * 100%);
+  }
+  
+  &.landscape {
+    padding-top: calc((2 / 3) * 100%);
+  }
+
+  &.rectangle {
+    padding-top: calc((3 / 4) * 100%);
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+  }
+}
+
+.hide-mobile {
+  display: none;
+}
+
+@media screen and (min-width: 960px) {
+  .hide-desktop {
+    display: none;
+  }
+
+  .hide-mobile {
+    display: block;
+  }
+}
+
+// animations
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes glowing {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: .7;
+    transform: scale(.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

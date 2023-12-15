@@ -1,0 +1,8 @@
+<div *ngIf="info.imgURI !== '' || info.name !== '' || info.desc !== ''" class="card">
+  <div *ngIf="info.imgURI !== ''" class="container-img square">
+    <img src="{{ info.imgURI }}" loading="lazy" width="250" height="250" alt="Arouna Darga">
+  </div>
+  <div class="separator"></div>
+  <h2 *ngIf="info.name !== ''">{{ info.name }}</h2>
+  <p *ngIf="info.desc !== ''">{{ info.desc }}</p>
+</div>

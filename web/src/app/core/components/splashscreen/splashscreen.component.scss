@@ -1,0 +1,28 @@
+@import "../../../../styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 50;
+  align-items: center;
+  background: $beige;
+  padding: $spacing-2xl;
+  transition: $animation-slow;
+
+  img {
+    object-fit: contain;
+    max-width: $spacing-3xl;
+    max-height: $spacing-3xl;
+    animation: glowing 2s infinite ease-in-out;
+  }
+
+  &.remove {
+    top: -100%;
+    bottom: 100%;
+  }
+}

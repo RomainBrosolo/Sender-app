@@ -1,0 +1,6 @@
+<div class="container">
+  <app-splashscreen *ngIf="remove" [ngClass]="showSplashScreen === true ? 'splashscreen' : 'splashscreen remove'"></app-splashscreen>
+  <app-header *ngIf="router.url == '/accueil' || router.url == '/don' || router.url == '/actualites' || router.url == '/login' "></app-header>
+  <div class="routeur"><router-outlet></router-outlet></div>
+  <app-footer *ngIf="router.url !== '/admin'"></app-footer>
+</div>

@@ -1,0 +1,110 @@
+query getDonations {
+  donations {
+    _id
+    contributor
+    type
+    cost
+    tracking {isDelivred picture message}
+    created
+    updated
+  }
+}
+
+query getDonation($id: String!) {
+  donation(id: $id) {
+    _id
+    contributor
+    type
+    cost
+    tracking {isDelivred picture message}
+    created
+    updated
+  }
+}
+
+query getContributors {
+  contributors {
+    _id
+    firstname
+    lastname
+    email
+    instagram
+    created
+    updated
+    donations {
+        _id
+    }
+  }
+}
+
+query getContributor($id: String!) {
+  contributor(id: $id) {
+    _id
+    firstname
+    lastname
+    email
+    instagram
+    created
+    updated
+    donations {
+        _id
+    }
+  }
+}
+
+
+mutation createDonation($createDonation: CreateDonationInput!) {
+  create_donation(createDonation: $createDonation) {
+    _id
+    contributor
+    type
+    cost
+    tracking {isDelivred picture message}
+    created
+    updated
+  }
+}
+
+mutation createContributor($createContributor: CreateContributorInput!) {
+  create_contributor(createContributor: $createContributor) {
+    _id
+    firstname
+    lastname
+    email
+    instagram
+  }
+}
+
+mutation updateDonation($updateDonationInput: UpdateDonationInput!) {
+  update_donation(updateDonationInput: $updateDonationInput) {
+    _id
+    contributor
+    type
+    cost
+    tracking {isDelivred picture message}
+    created
+    updated
+  }
+}
+
+mutation updateContributor($updateContributorInput: UpdateContributorInput!) {
+  update_contributor(updateContributorInput: $updateContributorInput) {
+    _id
+    firstname
+    lastname
+    email
+    instagram
+  }
+}
+
+mutation deleteContributor($id: String!) {
+  delete_contributor(id: $id)
+}
+
+mutation deleteDonation($id: String!) {
+  delete_donation(id: $id)
+}
+
+mutation getUser($user: User!) {
+  check_user(user: $user)
+}

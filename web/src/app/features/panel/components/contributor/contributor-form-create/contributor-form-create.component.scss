@@ -1,0 +1,63 @@
+@import "../../../../../../styles.scss";
+:host {
+  .container {
+    display: grid;
+    justify-content: center;
+    margin-top: 10px;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    .btnMenu {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        border-radius: 0px;
+
+        &:disabled {
+          opacity: 0.3;
+        }
+
+        &:nth-child(1) {
+          background: $color-btnSave;
+          color: white;
+          width: 92px;
+          margin-right: $gap-btn-forms;
+        }
+        &:nth-child(2) {
+          background: $color-btnDelete;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .title {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    button {
+      justify-self: flex-end;
+    }
+
+    h3 {
+      justify-self: flex-start;
+      padding-top: $paddingTop-title-forms;
+      font-weight: 500;
+    }
+  }
+}
+
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-label {
+    color: #000000;
+  }
+  .mat-form-field-ripple {
+    background-color: #000000;
+  }
+  .mat-form-field-required-marker {
+    color: #000000;
+  }
+}

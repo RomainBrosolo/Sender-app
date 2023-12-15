@@ -1,0 +1,109 @@
+@import "../../../../../styles.scss";
+
+:host {
+  header {
+    width: 100%;
+    height: 60px;
+    background-color: #f9d94a;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      margin-right: 20px;
+      align-self: center;
+    }
+  }
+  .sidenav-container {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    height: calc(100% - 60px);
+    background: $color-body;
+
+    .content-sidenav {
+      padding: $padding-sidenav;
+      width: $width-sidenav;
+    }
+  }
+
+  table {
+    width: 100%;
+    padding-left: $padding-table;
+    padding-right: $padding-table;
+    position: absolute;
+    top: $positionTop-table;
+    z-index: 1;
+
+    td {
+      font-weight: 500;
+      font-size: $font-size-table;
+      color: $color-entites-table;
+      border-bottom-style: hidden;
+      &:last-child {
+        padding-right: 0;
+      }
+
+      button {
+        padding: 0 $spacing-xs;
+        font-size: $font-size-table;
+        font-weight: 500;
+        width: $width-btn-table;
+        height: $height-btn-table;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &:nth-child(1) {
+          background: $color-btnEdit;
+          margin-left: 20px;
+        }
+
+        &:nth-child(2) {
+          background-color: $color-btnDelete;
+          color: white;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    th {
+      width: $width-column-table;
+      font-size: $font-size-table;
+      color: $secondary;
+      padding-top: $paddingTop-title-table;
+
+      &:nth-child(1) {
+        width: calc(#{$width-column-table} + 0.54 * #{$width-column-table});
+      }
+
+      &:nth-child(7) {
+        min-width: 147px;
+      }
+    }
+
+    tr:nth-child(2n) {
+      background-color: $color-tr-table;
+    }
+
+    button {
+      border-radius: 0px;
+    }
+  }
+
+  #btnCreateContributor,
+  #btnCreateDonation {
+    position: absolute;
+    background-color: $primary;
+    top: $marginTop-btnCreate;
+    right: $padding-table;
+    box-shadow: 0px 0px;
+    padding: 0 $spacing-sm;
+  }
+
+  #btnCreateDonation {
+    right: 190px;
+  }
+  .input-select-category {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
