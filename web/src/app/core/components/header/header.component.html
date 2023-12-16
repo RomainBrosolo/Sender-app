@@ -11,9 +11,7 @@
         <li>
           <a [routerLink]="['/don']">Suivre un don</a>
         </li>
-        <li>
-          <a [routerLink]="['/actualites']">Actualités</a>
-        </li>
+        
         <li *ngIf="!isConnect">
           <a [routerLink]="['/login']"><mat-icon>person</mat-icon></a>
         </li>
@@ -37,9 +35,7 @@
         <li>
           <a [routerLink]="['/don']" onclick="document.querySelector('.burger__btn')?.click()">Suivre un don</a>
         </li>
-        <li>
-          <a [routerLink]="['/actualites']" onclick="document.querySelector('.burger__btn')?.click()">Actualités</a>
-        </li>
+        
         <li *ngIf="!isConnect">
           <a [routerLink]="['/login']" onclick="document.querySelector('.burger__btn')?.click()">Se connecter</a>
         </li>
