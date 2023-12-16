@@ -48,8 +48,7 @@ export class DonationTableComponent implements OnInit, OnChanges {
   constructor( private route: ActivatedRoute, public router: Router) { }
 
   ngOnInit(): void {
-    console.log('test')
-    // this.route.params.subscribe((data) => {this.inputSearch = data.id, this.params = data.id});
+    this.route.params.subscribe((data) => {this.inputSearch = data['id'], this.params = data['id']});
     if (this.params != undefined) {
       this.searchDonation();
     }

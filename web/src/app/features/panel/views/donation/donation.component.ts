@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges, TemplateRef, ViewChild} from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { CreateContributorInput, CreateDonationInput, Donation, Contributor, UpdateContributorInput, UpdateDonationInput } from '@types';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
@@ -22,7 +22,7 @@ export class DonationComponent implements OnInit {
   public formSelected?: string;
   public isShow = false;
   public isShowEdit = false;
-  public selectedCategorie: string = 'contributors';  
+  public selectedCategorie: string = 'donations';  
 
   @ViewChild('contributorCreateForm')
   public contributorCreateForm!: TemplateRef<any>;
@@ -118,6 +118,10 @@ export class DonationComponent implements OnInit {
 
   goToHomePage() {
     this.router.navigate(['/accueil']);
+  }
+
+  public changeCategorySelected(event: string){
+    this.selectedCategorie = event;
   }
 
 }

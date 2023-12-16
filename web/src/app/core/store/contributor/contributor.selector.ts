@@ -14,7 +14,3 @@ export const selectAllContributors = createSelector(
   getAllContributors
 );
 
-export const selectContributorDonationById = (id: string) =>
-  createSelector(selectAllContributors, (contributors: Contributor[]) => {
-  return contributors?.filter((p) => p.donations?.find((data) => data._id === id));
-});

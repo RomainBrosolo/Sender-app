@@ -1,11 +1,8 @@
 import {
   Field,
-  Float,
   ID,
   ObjectType,
-  registerEnumType,
 } from '@nestjs/graphql';
-import { Donation } from 'donations/entities/Donation.entity';
 import { ObjectId } from 'mongodb';
 
 @ObjectType()
@@ -24,8 +21,6 @@ export class Contributor {
   created: Date;
   @Field(() => Date, {nullable: true})
   updated: Date;
-  @Field(() => [ListDonation], {nullable: true})
-  donations?: ListDonation[];
 }
 
 @ObjectType()
