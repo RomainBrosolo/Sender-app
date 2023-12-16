@@ -64,7 +64,8 @@ table {
   }
   .searchBar {
     margin-left: 20px;
-    margin-top:10px;
+    position: relative;
+    top: -8px;
   }
   #btnViewDonation {
     background-color: transparent;

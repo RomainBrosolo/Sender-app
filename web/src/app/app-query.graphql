@@ -31,9 +31,6 @@ query getContributors {
     instagram
     created
     updated
-    donations {
-        _id
-    }
   }
 }
 
@@ -46,9 +43,6 @@ query getContributor($id: String!) {
     instagram
     created
     updated
-    donations {
-        _id
-    }
   }
 }
 

@@ -19,6 +19,7 @@ export type Scalars = {
 
 export enum ArticleType {
   AlimentationPack = 'alimentationPack',
+  Custom = 'custom',
   EducationPack = 'educationPack',
   Monnaie = 'monnaie'
 }
@@ -27,7 +28,6 @@ export type Contributor = {
   __typename?: 'Contributor';
   _id: Scalars['ID'];
   created: Scalars['DateTime'];
-  donations?: Maybe<Array<ListDonation>>;
   email: Scalars['String'];
   firstname: Scalars['String'];
   instagram?: Maybe<Scalars['String']>;
@@ -58,11 +58,6 @@ export type Donation = {
   tracking?: Maybe<Tracking>;
   type: ArticleType;
   updated?: Maybe<Scalars['DateTime']>;
-};
-
-export type ListDonation = {
-  __typename?: 'ListDonation';
-  _id: Scalars['ID'];
 };
 
 export type Mutation = {
@@ -174,14 +169,14 @@ export type GetDonationQuery = { __typename?: 'Query', donation: { __typename?: 
 export type GetContributorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetContributorsQuery = { __typename?: 'Query', contributors: Array<{ __typename?: 'Contributor', _id: string, firstname: string, lastname: string, email: string, instagram?: string | null, created: any, updated?: any | null, donations?: Array<{ __typename?: 'ListDonation', _id: string }> | null }> };
+export type GetContributorsQuery = { __typename?: 'Query', contributors: Array<{ __typename?: 'Contributor', _id: string, firstname: string, lastname: string, email: string, instagram?: string | null, created: any, updated?: any | null }> };
 
 export type GetContributorQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-export type GetContributorQuery = { __typename?: 'Query', contributor: { __typename?: 'Contributor', _id: string, firstname: string, lastname: string, email: string, instagram?: string | null, created: any, updated?: any | null, donations?: Array<{ __typename?: 'ListDonation', _id: string }> | null } };
+export type GetContributorQuery = { __typename?: 'Query', contributor: { __typename?: 'Contributor', _id: string, firstname: string, lastname: string, email: string, instagram?: string | null, created: any, updated?: any | null } };
 
 export type CreateDonationMutationVariables = Exact<{
   createDonation: CreateDonationInput;
@@ -298,9 +293,6 @@ export const GetContributorsDocument = gql`
     instagram
     created
     updated
-    donations {
-      _id
-    }
   }
 }
     `;
@@ -325,9 +317,6 @@ export const GetContributorDocument = gql`
     instagram
     created
     updated
-    donations {
-      _id
-    }
   }
 }
     `;

@@ -46,8 +46,6 @@ export class ContributorTableComponent implements OnInit {
   constructor(public router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.route.params.subscribe((data) => this.params = data.id);
-    this.route.params.subscribe((data) => console.log(data));
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -78,6 +76,10 @@ export class ContributorTableComponent implements OnInit {
   public viewDonations(text: string){
     this.categorySelected.emit('donations');
     this.router.navigate(['admin',text])
+  }
+
+  public getDonationsNumber(id: string){
+    return this.donations.filter((data: Donation) => data.contributor === id).length;
   }
 
 }

@@ -23,7 +23,7 @@
     </ng-container>
     <ng-container matColumnDef="donations">
         <th mat-header-cell *matHeaderCellDef>Donations</th>
-        <td mat-cell *matCellDef="let element"><button id="btnViewDonation" *ngIf="element?.donations?.length > 0" (click)="viewDonations(element._id)">Voir ({{element.donations.length}}) </button></td>
+        <td mat-cell *matCellDef="let element"><button id="btnViewDonation" *ngIf="getDonationsNumber(element._id) > 0" (click)="viewDonations(element._id)">Voir ({{getDonationsNumber(element._id)}}) </button></td>
       </ng-container>
     <!-- Actions Column -->
     <ng-container matColumnDef="actions">
