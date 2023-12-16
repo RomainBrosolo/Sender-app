@@ -7,10 +7,6 @@
     height: 100%;
   }
 
-  video {
-    width: 100%;
-  }
-
   p,
   span {
     font-family: "Aleo Light";
@@ -38,28 +34,6 @@
   font-size: $text-normal;
   line-height: $text-sm;
 
-  .custom-container {
-    .left-side {
-      h1,
-      p {
-        text-align: center;
-        margin-bottom: $spacing-lg;
-      }
-
-      .btn__wrapper {
-        a.cta {
-          margin: 0 auto;
-          font-size: $text-normal;
-          line-height: $text-sm;
-        }
-      
-        a:not(a.cta),
-        img {
-          display: none;
-        }
-      }
-    }
-  }
 
   .right-side {
     display: none;
