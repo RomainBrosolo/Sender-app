@@ -352,7 +352,7 @@
     .team__grid,
     .partners__grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       align-items: flex-start;
       gap: $spacing-xl;
       margin-top: $spacing-lg-bis;
