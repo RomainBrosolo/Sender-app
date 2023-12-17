@@ -22,6 +22,7 @@ enum ArticleType {
   alimentationPack
   educationPack
   monnaie
+  custom
 }
 
 """
@@ -37,11 +38,6 @@ type Contributor {
   instagram: String
   created: DateTime!
   updated: DateTime
-  donations: [ListDonation!]
-}
-
-type ListDonation {
-  _id: ID!
 }
 
 type Query {

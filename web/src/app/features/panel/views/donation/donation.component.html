@@ -69,7 +69,7 @@
         Créer un don
       </button>
       <app-donation-table *ngIf="selectedCategorie == 'donations'" [donations]="donations$ | async" [contributors]="contributors$ | async" (onDonationStatusUpdate)="updateStatus($event)" (onDeleteDonation)="deleteDonation($event)" (onDonationEdit)="toggleMenuEdit($event)"></app-donation-table>
-      <app-contributor-table *ngIf="selectedCategorie == 'contributors'" (categorySelected)="selectedCategorie = $event" [donations]="donations$ | async" [contributors]="contributors$ | async" (onDeleteContributor)="deleteContributor($event)" (onContributorEdit)="toggleMenuEditContributor($event)"></app-contributor-table>
+      <app-contributor-table *ngIf="selectedCategorie == 'contributors'" (categorySelected)="changeCategorySelected($event)" [donations]="donations$ | async" [contributors]="contributors$ | async" (onDeleteContributor)="deleteContributor($event)" (onContributorEdit)="toggleMenuEditContributor($event)"></app-contributor-table>
     </div>
 </mat-drawer-container>
 

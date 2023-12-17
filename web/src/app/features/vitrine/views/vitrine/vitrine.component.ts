@@ -13,25 +13,21 @@ export class VitrineComponent implements OnInit {
 
   public team = [
     {
-      imgURI: "../../../../../assets/Darga.jpg",
-      name: "Arouna Darga",
-      desc: "Arouna Darga chercheur et professeur à Polytech Sorbonne."
+      imgURI: "../../../../../assets/romain.jpeg",
+      name: "Romain BROSOLO",
+      desc: "Dev Fullstack - CEO Sender"
     },
     {
-      imgURI: "../../../../../assets/cathy.jpg",
-      name: "Cathy Morot",
-      desc: "Cathy Morot professeur en management, élue mouvement associatif de Villejuif."
+      imgURI: "../../../../../assets/younes.jpeg",
+      name: "Younes BAALI",
+      desc: "Dev Fullstack - CTO Sender"
     },
     {
-      imgURI: "../../../../../assets/topcan.jpg",
-      name: "Ozkan Topcan",
-      desc: "Ozkan Topcan élève de cinquième année de l’école d’ingénieur Polytech Sorbonne."
+      imgURI: "../../../../../assets/johan.jpeg",
+      name: "Johan MARIN",
+      desc: "Dev Fullstack - COO Sender"
     },
-    {
-      imgURI: "../../../../../assets/marylin.jpg",
-      name: "Marylin Milosavljevic",
-      desc: "Marylin Milosavljevic élève de cinquième année de l’école d’ingénieur Polytech Sorbonne."
-    },
+    
   ];
 
   public partners = [];
