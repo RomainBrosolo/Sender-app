@@ -11,6 +11,7 @@ import { DonationFormCreateComponent } from './components/donation/donation-form
 import { ContributorTableComponent } from './components/contributor/contributor-table/contributor-table.component';
 import { FormLoginComponent } from './components/form-login/form-login/form-login.component';
 import { CookieService } from 'ngx-cookie-service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { CookieService } from 'ngx-cookie-service';
     ContributorFormEditComponent,
     FormLoginComponent,
   ],
-  imports: [CommonModule, SharedModule, PanelRoutingModule],
+  imports: [CommonModule, SharedModule, PanelRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [CookieService]
 })
 export class PanelModule {}

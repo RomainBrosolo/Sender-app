@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from '@types';
@@ -14,6 +15,10 @@ export class FormLoginComponent implements OnInit {
 
   public user: Partial<User> = {};
   public isConnect?: boolean;
+  public loginForm = new FormGroup({
+    login: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+  })
 
   constructor(private userService: UserService, private router: Router, private cookie: CookieService,private snackBar: MatSnackBar) { }
 
@@ -22,6 +27,9 @@ export class FormLoginComponent implements OnInit {
   }
 
   public submitLogin() {
+    console.log(this.loginForm.value)
+    console.log(this.loginForm.get('password')?.value);
+    this.user = {login: this.loginForm.get('login')?.value as string, password: this.loginForm.get('password')?.value as string}
     this.userService.checkUser(this.user as User);
   }
 

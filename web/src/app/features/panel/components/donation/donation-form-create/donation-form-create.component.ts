@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ArticleType, Contributor, CreateDonationInput } from '@types';
+import { AmountValidator } from 'src/app/shared/directives/restricted-amount.directive';
 
 @Component({
   selector: 'app-donation-form-create',
@@ -18,12 +20,19 @@ export class DonationFormCreateComponent implements OnInit {
   public donation: Partial<CreateDonationInput> = {};
   public articleEnum = ArticleType;
 
+  public donationForm = new FormGroup({
+    contributor: new FormControl('', Validators.required),
+    type: new FormControl('', Validators.required),
+    cost: new FormControl('', [Validators.required, AmountValidator()]),
+  })
+
   constructor() {}
 
   ngOnInit(): void {}
 
   submitDonation() {
-    this.onCreate.emit(this.donation);
+    this.onCreate.emit(this.donationForm.value);
+    console.log(this.donationForm.value)
     this.toggleMenu();
     this.donation = {};
   }
@@ -44,5 +53,9 @@ export class DonationFormCreateComponent implements OnInit {
       default:
         this.donation.cost = undefined;
     }
+  }
+
+  get cost(){
+    return this.donationForm.get('cost');
   }
 }
