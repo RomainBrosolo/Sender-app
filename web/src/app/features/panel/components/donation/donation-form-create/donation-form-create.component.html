@@ -6,17 +6,17 @@
   </div>
   
   <div class="container">
-    <form (submit)="submitDonation()">
+    <form [formGroup]="donationForm" (submit)="submitDonation()">
       <mat-form-field appearance="fill">
         <mat-label>Donateur</mat-label>
-        <mat-select name="contributor" [(ngModel)]="donation.contributor">
+        <mat-select name="contributor" formControlName="contributor">
             <mat-option *ngFor="let item of contributors" [value]="item._id">{{ item.firstname }} {{ item.lastname }}
             </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Type de don</mat-label>
-        <mat-select [(ngModel)]="donation.type" name="type" (selectionChange)="changeCostInput($event)">
+        <mat-select formControlName="type" name="type" (selectionChange)="changeCostInput($event)">
           <mat-option
             *ngFor="let enum of articleEnum | keyvalue"
             value="{{ enum.value }}"
@@ -32,15 +32,17 @@
           type="number"
           name="cost"
           min="0"
-          [(ngModel)]="donation.cost"
+          formControlName="cost"
           required
         />
       </mat-form-field>
+      <div *ngIf="!cost?.errors!['AmountTooHigh']">
+        Cout trop élevé. (max 1000€) 
+      </div>
       <div class="btnMenu">
         <button
           mat-raised-button
-          [disabled]="
-            !donation.contributor || !donation.type || !donation.cost"
+          [disabled]="donationForm.invalid"
           type="submit"
         >
           Sauvegarder

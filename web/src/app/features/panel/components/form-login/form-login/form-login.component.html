@@ -1,5 +1,5 @@
 <div class="container">
-    <form (submit)="submitLogin()" *ngIf="!isConnect">
+    <form [formGroup]="loginForm" (submit)="submitLogin()" *ngIf="!isConnect" >
         <mat-form-field appearance="fill">
         <mat-label for="name">Identifiant</mat-label>
         <input
@@ -7,7 +7,7 @@
             placeholder="Identifiant"
             type="text"
             name="login"
-            [(ngModel)]="user.login"
+            formControlName="login"
             autofocus
             required
         />
@@ -19,14 +19,13 @@
             placeholder="Mot de passe"
             type="password"
             name="password"
-            [(ngModel)]="user.password"
+            formControlName="password"
             required
         />
         </mat-form-field>
         <button
           mat-raised-button
-          [disabled]="
-            !user.login || !user.password"
+          [disabled]="loginForm.invalid"
           type="submit"
         >
           Se connecter
