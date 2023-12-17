@@ -16,7 +16,6 @@ export const ContributorReducer = createReducer(
     return contributorsAdapter.setAll(action.contributors, {
       ...state,
     });
-    // return { ...state, Contributors: action.Contributors };
   }),
   on(addContributorSuccess, (state, action) => {
     return contributorsAdapter.addOne(action.contributor, {

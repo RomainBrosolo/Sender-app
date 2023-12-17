@@ -66,7 +66,6 @@ export class DonationComponent implements OnInit {
 
   createDonation(donation: CreateDonationInput){
     this.store.dispatch(addDonation({donation: donation}));
-    // this.textInputSearch ='';
   }
 
   updateDonation(donation: UpdateDonationInput) {

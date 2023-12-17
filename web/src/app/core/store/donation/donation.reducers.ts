@@ -16,7 +16,6 @@ export const donationReducer = createReducer(
     return donationsAdapter.setAll(action.donations, {
       ...state,
     });
-    // return { ...state, Donations: action.Donations };
   }),
   on(addDonationSuccess, (state, action) => {
     return donationsAdapter.addOne(action.donation, {
