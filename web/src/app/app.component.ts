@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Burkina';
+  title = 'Sender';
 
   constructor(public router: Router) {}
 

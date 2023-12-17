@@ -27,13 +27,11 @@ export class FormLoginComponent implements OnInit {
   }
 
   public submitLogin() {
-    console.log(this.loginForm.value)
-    console.log(this.loginForm.get('password')?.value);
     this.user = {login: this.loginForm.get('login')?.value as string, password: this.loginForm.get('password')?.value as string}
     this.userService.checkUser(this.user as User);
   }
 
-  logoutUser() {
+  public logoutUser() {
     this.router.navigate(['/accueil']);
     this.cookie.delete("isConnect");
     this.isConnect = false;

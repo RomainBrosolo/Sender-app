@@ -17,7 +17,6 @@ export class DonationFormCreateComponent implements OnInit {
   @Input()
   public contributors?: Contributor[] | any;
 
-  public donation: Partial<CreateDonationInput> = {};
   public articleEnum = ArticleType;
 
   public donationForm = new FormGroup({
@@ -32,9 +31,8 @@ export class DonationFormCreateComponent implements OnInit {
 
   submitDonation() {
     this.onCreate.emit(this.donationForm.value);
-    console.log(this.donationForm.value)
+    this.donationForm.reset();
     this.toggleMenu();
-    this.donation = {};
   }
 
   toggleMenu() {
@@ -45,13 +43,13 @@ export class DonationFormCreateComponent implements OnInit {
   changeCostInput(event:any){
     switch(event.value){
       case 'alimentationPack':
-        this.donation.cost = 25;
+        this.donationForm.controls['cost'].setValue('25');
         break;
       case 'educationPack':
-        this.donation.cost = 20;
+        this.donationForm.controls['cost'].setValue('20');
         break;
       default:
-        this.donation.cost = undefined;
+        this.donationForm.controls['cost'].setValue('0');
     }
   }
 
